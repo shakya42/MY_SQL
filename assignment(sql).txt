@@ -1,0 +1,1309 @@
+...............................................................
+...............................................................
+question-1. Display all information in the tables EMP and DEPT.
+...............................................................
+...............................................................
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mydt               |
+| mysql              |
+| mysys              |
+| mytb               |
+| mytv               |
+| performance_schema |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+
+mysql> create table employyee(Id int, name varchar(100), age int, salary int, sift char(25));
+Query OK, 0 rows affected (0.83 sec)
+
+mysql> describe employyee;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| Id     | int          | YES  |     | NULL    |       |
+| name   | varchar(100) | YES  |     | NULL    |       |
+| age    | int          | YES  |     | NULL    |       |
+| salary | int          | YES  |     | NULL    |       |
+| sift   | char(25)     | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into employyee values(1,"Mukesh",30,30000,"Morning");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into employyee values(2,"Kunal",32,35000,"Night");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into employyee values(3,"Mahesh",30,32000,"Night");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into employyee values(4,"Anurag",35,36000,"Regular");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into employyee values(5,"Anand",30,30000,"Regular");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from employyee;
++------+--------+------+--------+---------+
+| Id   | name   | age  | salary | sift    |
++------+--------+------+--------+---------+
+|    1 | Mukesh |   30 |  30000 | Morning |
+|    2 | Kunal  |   32 |  35000 | Night   |
+|    3 | Mahesh |   30 |  32000 | Night   |
+|    4 | Anurag |   35 |  36000 | Regular |
+|    5 | Anand  |   30 |  30000 | Regular |
++------+--------+------+--------+---------+
+5 rows in set (0.00 sec)
+mysql> create table Departmentt(Id int, name varchar(100), department char(50), age int, salary int, sift char(25),location char(26));
+Query OK, 0 rows affected (0.31 sec)
+mysql> describe Departmentt;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| Id         | int          | YES  |     | NULL    |       |
+| name       | varchar(100) | YES  |     | NULL    |       |
+| department | char(50)     | YES  |     | NULL    |       |
+| age        | int          | YES  |     | NULL    |       |
+| salary     | int          | YES  |     | NULL    |       |
+| sift       | char(25)     | YES  |     | NULL    |       |
+| location   | char(26)     | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> insert into Departmentt values(1,"Mukesh", "IT",30,30000,"Morning","Delhi");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Departmentt values(2,"Kunal", "MRKT",32,35000,"Night","Pune");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into Departmentt values(3,"Mahesh", "HR",30,32000,"Night","Mumbai");;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into Departmentt values(4,"Anurag", "MRKT",35,36000,"Regular","Gujrat");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into Departmentt values(5,"Anand", "IT",30,30000,"Regular","Punjab");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from Departmentt;
++------+--------+------------+------+--------+---------+----------+
+| Id   | name   | department | age  | salary | sift    | location |
++------+--------+------------+------+--------+---------+----------+
+|    1 | Mukesh | IT         |   30 |  30000 | Morning | Delhi    |
+|    2 | Kunal  | MRKT       |   32 |  35000 | Night   | Pune     |
+|    3 | Mahesh | HR         |   30 |  32000 | Night   | Mumbai   |
+|    4 | Anurag | MRKT       |   35 |  36000 | Regular | Gujrat   |
+|    5 | Anand  | IT         |   30 |  30000 | Regular | Punjab   |
++------+--------+------------+------+--------+---------+----------+
+5 rows in set (0.00 sec)
+
+...........................................................................
+...........................................................................
+question-2. Display only the hire date and employee name for each employee.
+............................................................................
+............................................................................
+ 
+mysql>Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 15
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mydt               |
+| mysql              |
+| mysys              |
+| mytb               |
+| mytv               |
+| performance_schema |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+mysql> create table cEmployee(Id int, name varchar(100), hire_data date);
+Query OK, 0 rows affected (0.32 sec)
+
+mysql> insert into cEmployee values(1,"Ankur","2020-08-05");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into cEmployee values(2,"Anubhav","2021-11-06");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into cEmployee values(3,"Gaurav","2020-06-08");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into cEmployee values(4,"Rohit","2023-03-11");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into cEmployee values(5,"Ankit","2022-12-11");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from cEmployee;
++------+---------+------------+
+| Id   | name    | hire_data  |
++------+---------+------------+
+|    1 | Ankur   | 2020-08-05 |
+|    2 | Anubhav | 2021-11-06 |
+|    3 | Gaurav  | 2020-06-08 |
+|    4 | Rohit   | 2023-03-11 |
+|    5 | Ankit   | 2022-12-11 |
++------+---------+------------+
+5 rows in set (0.00 sec)
+
+............................................................................
+............................................................................
+Question-3 Display the hire date, name and department number for all clerks.
+............................................................................
+............................................................................
+ 
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mydt               |
+| mysql              |
+| mysys              |
+| mytb               |
+| mytv               |
+| performance_schema |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+mysql> create table clerkss(Id int, name varchar(100), depaertment char(50), number int, hire_date date);
+Query OK, 0 rows affected (0.37 sec)
+
+mysql> insert into clerkss values(101,"Raghav","Railway clerkss",9,"2016-09-05");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into clerkss values(102,"Pratap","Bank clerkss",10,"2015-11-05");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into clerkss values(103,"Pankaj","School clerkss",6,"2017-03-07");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into clerkss values(104,"Anshul","Army clerkss",8,"2019-05-11");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from clerkss;
++------+--------+-----------------+--------+------------+
+| Id   | name   | depaertment     | number | hire_date  |
++------+--------+-----------------+--------+------------+
+|  101 | Raghav | Railway clerkss |      9 | 2016-09-05 |
+|  102 | Pratap | Bank clerkss    |     10 | 2015-11-05 |
+|  103 | Pankaj | School clerkss  |      6 | 2017-03-07 |
+|  104 | Anshul | Army clerkss    |      8 | 2019-05-11 |
++------+--------+-----------------+--------+------------+
+4 rows in set (0.00 sec)
+
+........................................................................................
+........................................................................................
+Quetions-4 Write an SQL query to fetch "FIRST_NAME" from the worker table in upper case.
+.........................................................................................
+.........................................................................................
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mydt               |
+| mysql              |
+| mysys              |
+| mytb               |
+| mytv               |
+| performance_schema |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+mysql> create table worker(id int not null primary key auto_increment,first_name char(25), last_name char(25), salary int , joining_date datetime,department char(25));
+Query OK, 0 rows affected (0.65 sec)
+
+mysql> insert into worker values(1,"Manali" ,"shah",20000,"2016-04-07 09.00.00","HR");
+Query OK, 1 row affected, 1 warning (0.06 sec)
+
+mysql> insert into worker values(2,"Aman","Sharma",22000,"2017-04-07 07.00.00","IT");
+Query OK, 1 row affected, 1 warning (0.05 sec)
+
+mysql> insert into worker values(3,"Karan","Vrama",25000,"2019-09-08 07.00.00","MKRT");
+Query OK, 1 row affected, 1 warning (0.06 sec)
+
+mysql> insert into worker values(4,"Kunal","Singh",23000,"2016-09-08 07.00.00","MKRT");
+Query OK, 1 row affected, 1 warning (0.07 sec)
+
+mysql> insert into worker values(5,"Gaurav","Rajput",26000,"2016-04-03 05.00.00","Account");
+Query OK, 1 row affected, 1 warning (0.04 sec)
+mysql> select * from worker;
++----+------------+-----------+--------+---------------------+------------+
+| id | first_name | last_name | salary | joining_date        | department |
++----+------------+-----------+--------+---------------------+------------+
+|  1 | Manali     | shah      |  20000 | 2016-04-07 09:00:00 | HR         |
+|  2 | Aman       | Sharma    |  22000 | 2017-04-07 07:00:00 | IT         |
+|  3 | Karan      | Vrama     |  25000 | 2019-09-08 07:00:00 | MKRT       |
+|  4 | Kunal      | Singh     |  23000 | 2016-09-08 07:00:00 | MKRT       |
+|  5 | Gaurav     | Rajput    |  26000 | 2016-04-03 05:00:00 | Account    |
++----+------------+-----------+--------+---------------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select upper(first_name) from worker;
++-------------------+
+| upper(first_name) |
++-------------------+
+| MANALI            |
+| AMAN              |
+| KARAN             |
+| KUNAL             |
+| GAURAV            |
++-------------------+
+5 rows in set (0.00 sec)
+
+mysql> select lower(first_name)from worker;
++-------------------+
+| lower(first_name) |
++-------------------+
+| manali            |
+| aman              |
+| karan             |
+| kunal             |
+| gaurav            |
++-------------------+
+5 rows in set (0.00 sec)
+
+..............................................................................................................
+..............................................................................................................
+Question-5 WRITE an SQL query to fetch fetch "FIRST_NAME" from the Worker table using the alise <WORKER_NAME>.
+...............................................................................................................
+...............................................................................................................
+
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mydt               |
+| mysql              |
+| mysys              |
+| mytb               |
+| mytv               |
+| performance_schema |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+
+mysql> create table worker(id int not null primary key auto_increment,first_name char(25), last_name char(25), salary int , joining_date datetime,department char(25));
+Query OK, 0 rows affected (0.65 sec)
+
+mysql> insert into worker values(1,"Manali" ,"shah",20000,"2016-04-07 09.00.00","HR");
+Query OK, 1 row affected, 1 warning (0.06 sec)
+
+mysql> insert into worker values(2,"Aman","Sharma",22000,"2017-04-07 07.00.00","IT");
+Query OK, 1 row affected, 1 warning (0.05 sec)
+
+mysql> insert into worker values(3,"Karan","Vrama",25000,"2019-09-08 07.00.00","MKRT");
+Query OK, 1 row affected, 1 warning (0.06 sec)
+
+mysql> insert into worker values(4,"Kunal","Singh",23000,"2016-09-08 07.00.00","MKRT");
+Query OK, 1 row affected, 1 warning (0.07 sec)
+
+mysql> insert into worker values(5,"Gaurav","Rajput",26000,"2016-04-03 05.00.00","Account");
+Query OK, 1 row affected, 1 warning (0.04 sec)
+
+mysql> select * from  worker;
++----+------------+-----------+--------+---------------------+------------+
+| id | first_name | last_name | salary | joining_date        | department |
++----+------------+-----------+--------+---------------------+------------+
+|  1 | Manali     | shah      |  20000 | 2016-04-07 09:00:00 | HR         |
+|  2 | Aman       | Sharma    |  22000 | 2017-04-07 07:00:00 | IT         |
+|  3 | Karan      | Vrama     |  25000 | 2019-09-08 07:00:00 | MKRT       |
+|  4 | Kunal      | Singh     |  23000 | 2016-09-08 07:00:00 | MKRT       |
+|  5 | Gaurav     | Rajput    |  26000 | 2016-04-03 05:00:00 | Account    |
++----+------------+-----------+--------+---------------------+------------+
+5 rows in set (0.00 sec)
+mysql> select first_name as fname from worker;
++--------+
+| fname  |
++--------+
+| Manali |
+| Aman   |
+| Karan  |
+| Kunal  |
+| Gaurav |
++--------+
+5 rows in set (0.00 sec)
+mysql> select FIRST_NAME AS WORKER_NAME from worker;
++-------------+
+| WORKER_NAME |
++-------------+
+| Manali      |
+| Aman        |
+| Karan       |
+| Kunal       |
+| Gaurav      |
++-------------+
+5 rows in set (0.00 sec)
+
+....................................................................................................
+....................................................................................................
+Question-6 Write an SQL query to print the first three character of FIRST_NAME from the Worker table.
+.....................................................................................................
+.....................................................................................................
+
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mydt               |
+| mysql              |
+| mysys              |
+| mytb               |
+| mytv               |
+| performance_schema |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+
+mysql> create table Worker(Worker_id int not null primary key auto_increment,first_name char(26),last_name char(26),salary int);
+Query OK, 0 rows affected (0.34 sec)
+
+mysql> insert into Worker values(1,"Vishal","Kushwah",38000);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into Worker values(2,"Ashul","Pathak",30000);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into Worker values(3,"Karan","Sharma",25000);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into Worker values(4,"Aman","Varma",25000);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into Worker values(5,"Pawan","Shah",25000);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from Worker;
++-----------+------------+-----------+--------+
+| Worker_id | first_name | last_name | salary |
++-----------+------------+-----------+--------+
+|         1 | Vishal     | Kushwah   |  38000 |
+|         2 | Ashul      | Pathak    |  30000 |
+|         3 | Karan      | Sharma    |  25000 |
+|         4 | Aman       | Varma     |  25000 |
+|         5 | Pawan      | Shah      |  25000 |
++-----------+------------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select first_name as fname from Worker;
++--------+
+| fname  |
++--------+
+| Vishal |
+| Ashul  |
+| Karan  |
+| Aman   |
+| Pawan  |
++--------+
+5 rows in set (0.00 sec)
+
+mysql> select substring(first_name,1,3) from worker;
++---------------------------+
+| substring(first_name,1,3) |
++---------------------------+
+| Vis                       |
+| Ash                       |
+| Kar                       |
+| Ama                       |
+| Paw                       |
++---------------------------+
+5 rows in set (0.00 sec)
+
+..................................................................................................................................
+..................................................................................................................................
+Question-7. Write an SQL query to find the position of the alphabet ('a') in the first name column 'Amitabh' from the worker table.
+...................................................................................................................................
+...................................................................................................................................
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mydt               |
+| mysql              |
+| mysys              |
+| mytb               |
+| mytv               |
+| performance_schema |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+mysql> create table Workerr(Worker_id int not null primary key auto_increment,first_name char(26),last_name char(26),salary int , position char(50));
+Query OK, 0 rows affected (0.27 sec)
+
+mysql> insert into Workerr values(1,"Amitabh","Kushwah",38000,"Head department");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into Workerr values(2,"Ashul","Pathak",30000,"Manager");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into Workerr values(3,"Karan","Sharma",25000,"Social worker");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into Workerr values(4,"Aman","Varma",25000,"Digital disign");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into Workerr values(5,"Pawan","Shah",25000,"Mechanical Engineer" );
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from  Workerr;
++-----------+------------+-----------+--------+---------------------+
+| Worker_id | first_name | last_name | salary | position            |
++-----------+------------+-----------+--------+---------------------+
+|         1 | Amitabh    | Kushwah   |  38000 | Head department     |
+|         2 | Ashul      | Pathak    |  30000 | Manager             |
+|         3 | Karan      | Sharma    |  25000 | Social worker       |
+|         4 | Aman       | Varma     |  25000 | Digital disign      |
+|         5 | Pawan      | Shah      |  25000 | Mechanical Engineer |
++-----------+------------+-----------+--------+---------------------+
+5 rows in set (0.00 sec)
+
+mysql> select locate ("a",first_name) from worker;
++-------------------------+
+| locate ("a",first_name) |
++-------------------------+
+|                       5 |
+|                       1 |
+|                       2 |
+|                       1 |
+|                       2 |
++-------------------------+
+5 rows in set (0.02 sec)
+
+.............................................................................................................................
+.............................................................................................................................
+Question-8. Write an SQL query to print the FRIST_NAME from the worker table after removing white spaces from the right side. 
+.............................................................................................................................
+.............................................................................................................................
+
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mydt               |
+| mysql              |
+| mysys              |
+| mytb               |
+| mytv               |
+| performance_schema |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+mysql> create table Workerr(Worker_id int not null primary key auto_increment,first_name char(26),last_name char(26),salary int , position char(50));
+Query OK, 0 rows affected (0.27 sec)
+
+mysql> insert into Workerr values(1,"Amitabh","Kushwah",38000,"Head department");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into Workerr values(2,"Ashul","Pathak",30000,"Manager");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into Workerr values(3,"Karan","Sharma",25000,"Social worker");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into Workerr values(4,"Aman","Varma",25000,"Digital disign");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into Workerr values(5,"Pawan","Shah",25000,"Mechanical Engineer" );
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from Workerr;
++-----------+------------+-----------+--------+---------------------+
+| Worker_id | first_name | last_name | salary | position            |
++-----------+------------+-----------+--------+---------------------+
+|         1 | Amitabh    | Kushwah   |  38000 | Head department     |
+|         2 | Ashul      | Pathak    |  30000 | Manager             |
+|         3 | Karan      | Sharma    |  25000 | Social worker       |
+|         4 | Aman       | Varma     |  25000 | Digital disign      |
+|         5 | Pawan      | Shah      |  25000 | Mechanical Engineer |
++-----------+------------+-----------+--------+---------------------+
+5 rows in set (0.00 sec)
+
+mysql> select rtrim(first_name)from Workerr;
++-------------------+
+| rtrim(first_name) |
++-------------------+
+| Amitabh           |
+| Ashul             |
+| Karan             |
+| Aman              |
+| Pawan             |
++-------------------+
+5 rows in set (0.00 sec)
+
+.......................................................................................................................
+.......................................................................................................................
+Question-9. Write an SQL Query to print the DEPARTMENT from worker table after removing white space from the left side.
+........................................................................................................................
+........................................................................................................................
+
+mysql>Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mydt               |
+| mysql              |
+| mysys              |
+| mytb               |
+| mytv               |
+| performance_schema |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+mysql> create table Worker(Worker_Id int not null primary key auto_increment,first_name char(25),last_name char(25),salary int,department char(25));
+ERROR 1050 (42S01): Table 'worker' already exists
+mysql> drop table worker;
+Query OK, 0 rows affected (0.19 sec)
+
+mysql> create table Worker(Worker_Id int not null primary key auto_increment,first_name char(25),last_name char(25),salary int,department char(25));
+Query OK, 0 rows affected (0.35 sec)
+
+mysql> insert into Worker values(1,"Mitesh","Chandra",33000,"Hr");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Worker values(2,"Vishal","Shigh",30000,"Account");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Worker values(3,"Mnisha","Varma",30000,"Account");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into Worker values(4,"Megha","Arora",29000,"MKRT");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Worker values(5,"Kartik","Shah",35000,"Admin");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from Worker;
++-----------+------------+-----------+--------+------------+
+| Worker_Id | first_name | last_name | salary | department |
++-----------+------------+-----------+--------+------------+
+|         1 | Mitesh     | Chandra   |  33000 | Hr         |
+|         2 | Vishal     | Shigh     |  30000 | Account    |
+|         3 | Mnisha     | Varma     |  30000 | Account    |
+|         4 | Megha      | Arora     |  29000 | MKRT       |
+|         5 | Kartik     | Shah      |  35000 | Admin      |
++-----------+------------+-----------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select ltrim(department) from Worker;
++-------------------+
+| ltrim(department) |
++-------------------+
+| Hr                |
+| Account           |
+| Account           |
+| MKRT              |
+| Admin             |
++-------------------+
+5 rows in set (0.04 sec)
+
+................................................................................................................
+................................................................................................................
+Question-10. Write an SQL Query that Fetches the Unique values of DEPARTMENT from worker and prints Its Length..
+................................................................................................................
+................................................................................................................
+
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mydt               |
+| mysql              |
+| mysys              |
+| mytb               |
+| mytv               |
+| performance_schema |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+
+mysql> create table Worker(Worker_Id int not null primary key auto_increment,first_name char(25),last_name char(25),salary int,department char(25));
+Query OK, 0 rows affected (0.35 sec)
+
+mysql> insert into Worker values(1,"Mitesh","Chandra",33000,"Hr");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Worker values(2,"Vishal","Shigh",30000,"Account");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Worker values(3,"Mnisha","Varma",30000,"Account");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into Worker values(4,"Megha","Arora",29000,"MKRT");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Worker values(5,"Kartik","Shah",35000,"Admin");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from Worker;
++-----------+------------+-----------+--------+------------+
+| Worker_Id | first_name | last_name | salary | department |
++-----------+------------+-----------+--------+------------+
+|         1 | Mitesh     | Chandra   |  33000 | Hr         |
+|         2 | Vishal     | Shigh     |  30000 | Account    |
+|         3 | Mnisha     | Varma     |  30000 | Account    |
+|         4 | Megha      | Arora     |  29000 | MKRT       |
+|         5 | Kartik     | Shah      |  35000 | Admin      |
++-----------+------------+-----------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select distinct department,length(department)as departmentNameLength from worker;
++------------+----------------------+
+| department | departmentNameLength |
++------------+----------------------+
+| Hr         |                    2 |
+| Account    |                    7 |
+| MKRT       |                    4 |
+| Admin      |                    5 |
++------------+----------------------+
+4 rows in set (0.02 sec)
+
+.............................................................................................
+.............................................................................................
+Question-11.Write an SQL Query to print the FIRST_NAME From Worker Table After 'A' With 'A'..
+.............................................................................................
+.............................................................................................
+
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mydt               |
+| mysql              |
+| mysys              |
+| mytb               |
+| mytv               |
+| performance_schema |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+
+mysql> create table Worker(Worker_Id int not null primary key auto_increment,first_name char(25),last_name char(25),salary int,department char(25));
+Query OK, 0 rows affected (0.96 sec)
+
+mysql> insert into Worker values(1,"Raj","Chandra",33000,"HR");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Worker values(2,"Ram","Chandra",33000,"HR");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Worker values(3,"Kartik","Chandra",33000,"Admin");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into Worker values(4,"karan","Chandra",35000,"Account");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Worker values(5,"Pratap","Kumar",32000,"MKRT");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from Worker;
++-----------+------------+-----------+--------+------------+
+| Worker_Id | first_name | last_name | salary | department |
++-----------+------------+-----------+--------+------------+
+|         1 | Raj        | Chandra   |  33000 | HR         |
+|         2 | Ram        | Chandra   |  33000 | HR         |
+|         3 | Kartik     | Chandra   |  33000 | Admin      |
+|         4 | karan      | Chandra   |  35000 | Account    |
+|         5 | Pratap     | Kumar     |  32000 | MKRT       |
++-----------+------------+-----------+--------+------------+
+5 rows in set (0.00 sec)
+mysql> select replace(first_name,"a","A") from Worker;
++-----------------------------+
+| replace(first_name,"a","A") |
++-----------------------------+
+| RAj                         |
+| RAm                         |
+| KArtik                      |
+| kArAn                       |
+| PrAtAp                      |
++-----------------------------+
+5 rows in set (0.00 sec)
+
+............................................................................................................................................................
+............................................................................................................................................................
+question-12. Write an Query to print the FIRST_NAME and the LAST_NAME from the Worker table into a single column COMPLETE_NAME.A space char should separate them.
+............................................................................................................................................................
+............................................................................................................................................................
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mydt               |
+| mysql              |
+| mysys              |
+| mytb               |
+| mytv               |
+| performance_schema |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+
+mysql> create table Worker(Worker_Id int not null primary key auto_increment,first_name char(25),last_name char(25),salary int,department char(25));
+Query OK, 0 rows affected (0.41 sec)
+
+mysql> insert into Worker values(1,"Raj","Chandra",33000,"HR");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Worker values(2,"Raj","Saini",30000,"Marketing");
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into Worker values(3,"Gaurav","Singh",30000,"Finance");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Worker values(4,"Kunal","Kushawah",35000,"HR");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into Worker values(5,"Raj","Prajapati",32000,"Finance");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from Worker;
++-----------+------------+-----------+--------+------------+
+| Worker_Id | first_name | last_name | salary | department |
++-----------+------------+-----------+--------+------------+
+|         1 | Raj        | Chandra   |  33000 | HR         |
+|         2 | Raj        | Saini     |  30000 | Marketing  |
+|         3 | Gaurav     | Singh     |  30000 | Finance    |
+|         4 | Kunal      | Kushawah  |  35000 | HR         |
+|         5 | Raj        | Prajapati |  32000 | Finance    |
++-----------+------------+-----------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select concat(first_name," ",last_name)as complete_name from Worker;
++----------------+
+| complete_name  |
++----------------+
+| Raj Chandra    |
+| Raj Saini      |
+| Gaurav Singh   |
+| Kunal Kushawah |
+| Raj Prajapati  |
++----------------+
+5 rows in set (0.02 sec)
+
+.........................................................................................................
+.........................................................................................................
+Question-13.Write an SQL Query to print all Worker details From the Worker table by FIRST_NAME Ascending.
+.........................................................................................................
+.........................................................................................................
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mydt               |
+| mysql              |
+| mysys              |
+| mytb               |
+| mytv               |
+| performance_schema |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+
+mysql> create table Worker(Worker_Id int not null primary key auto_increment,first_name char(25),last_name char(25),salary int,department char(25));
+Query OK, 0 rows affected (0.41 sec)
+
+mysql> insert into Worker values(1,"Raj","Chandra",33000,"HR");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into Worker values(2,"Salini","Shah",33000,"HR");
+Query OK, 1 row affected (0.27 sec)
+
+mysql> insert into Worker values(3,"Himashu","Shah",30000,"Marketing");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Worker values(4,"Abishek","kumar",35000,"Account");
+Query OK, 1 row affected (0.30 sec)
+
+mysql> insert into Worker values(5,"Gagan","Saini",32000,"Admin");
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from Worker ;
++-----------+------------+-----------+--------+------------+
+| Worker_Id | first_name | last_name | salary | department |
++-----------+------------+-----------+--------+------------+
+|         1 | Raj        | Chandra   |  33000 | HR         |
+|         2 | Salini     | Shah      |  33000 | HR         |
+|         3 | Himashu    | Shah      |  30000 | Marketing  |
+|         4 | Abishek    | kumar     |  35000 | Account    |
+|         5 | Gagan      | Saini     |  32000 | Admin      |
++-----------+------------+-----------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Worker order by first_name asc;
++-----------+------------+-----------+--------+------------+
+| Worker_Id | first_name | last_name | salary | department |
++-----------+------------+-----------+--------+------------+
+|         4 | Abishek    | kumar     |  35000 | Account    |
+|         5 | Gagan      | Saini     |  32000 | Admin      |
+|         3 | Himashu    | Shah      |  30000 | Marketing  |
+|         1 | Raj        | Chandra   |  33000 | HR         |
+|         2 | Salini     | Shah      |  33000 | HR         |
++-----------+------------+-----------+--------+------------+
+5 rows in set (0.00 sec)
+
+.........................................................................................................................................
+.........................................................................................................................................
+Question-14.Write an SQL Query to print all Worker Details from the Worker table order by FIRST_NAME Ascending and DEPARTMENT Descending.
+.........................................................................................................................................
+.........................................................................................................................................
+
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mydt               |
+| mysql              |
+| mysys              |
+| mytb               |
+| mytv               |
+| performance_schema |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+mysql> create table Worker(Worker_Id int not null primary key auto_increment,first_name char(25),last_name char(25),salary int,department char(25));
+Query OK, 0 rows affected (0.41 sec)
+
+mysql> insert into Worker values(1,"Raj","Saini",30000,"Marketing");
+Query OK, 1 row affected (0.06 sec)
+
+insert into Worker values(2,"Gaurav",Singh",30000,"Fina' at line 1
+mysql> insert into Worker values(2,"Gaurav","Singh",30000,"Finance");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into Worker values(3,"Himashu","Shah",30000,"Bank manager");
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into Worker values(4,"Abishek","kumar",35000,"Account");
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into Worker values(5,"Raj","Prajapati",32000,"Production");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from Worker;
++-----------+------------+-----------+--------+--------------+
+| Worker_Id | first_name | last_name | salary | department   |
++-----------+------------+-----------+--------+--------------+
+|         1 | Raj        | Saini     |  30000 | Marketing    |
+|         2 | Gaurav     | Singh     |  30000 | Finance      |
+|         3 | Himashu    | Shah      |  30000 | Bank manager |
+|         4 | Abishek    | kumar     |  35000 | Account      |
+|         5 | Raj        | Prajapati |  32000 | Production   |
++-----------+------------+-----------+--------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Worker order by first_name asc, department desc;
++-----------+------------+-----------+--------+--------------+
+| Worker_Id | first_name | last_name | salary | department   |
++-----------+------------+-----------+--------+--------------+
+|         4 | Abishek    | kumar     |  35000 | Account      |
+|         2 | Gaurav     | Singh     |  30000 | Finance      |
+|         3 | Himashu    | Shah      |  30000 | Bank manager |
+|         5 | Raj        | Prajapati |  32000 | Production   |
+|         1 | Raj        | Saini     |  30000 | Marketing    |
++-----------+------------+-----------+--------+--------------+
+5 rows in set (0.00 sec)
+
+......................................................................................................................
+......................................................................................................................
+Question-15.Write an SQL Query to print Details for Workers with first names "Vipul and "satish" from the Worker table.
+......................................................................................................................
+......................................................................................................................
+
+Enter password: ******
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mydt               |
+| mysql              |
+| mysys              |
+| mytb               |
+| mytv               |
+| performance_schema |
+| sys                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use mydb;
+Database changed
+mysql> create table Worker(Worker_Id int not null primary key auto_increment,first_name char(25),last_name char(25),salary int,department char(25));
+Query OK, 0 rows affected (0.98 sec)
+
+mysql> insert into Worker values(1,"Vipul","Jain",35000,"Bank manager");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into Worker values(2,"Satish","Kumar",30000,"Marketig");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Worker values(3,"Varun","Shah",33000,"Account");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into Worker values(4,"Ashok","Pathak",33000,"Account");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Worker values(5,"Aman","Patel",36000,"HR");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from Worker;
++-----------+------------+-----------+--------+--------------+
+| Worker_Id | first_name | last_name | salary | department   |
++-----------+------------+-----------+--------+--------------+
+|         1 | Vipul      | Jain      |  35000 | Bank manager |
+|         2 | Satish     | Kumar     |  30000 | Marketig     |
+|         3 | Varun      | Shah      |  33000 | Account      |
+|         4 | Ashok      | Pathak    |  33000 | Account      |
+|         5 | Aman       | Patel     |  36000 | HR           |
++-----------+------------+-----------+--------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Worker where first_name in ("Vipul", "Satish");
++-----------+------------+-----------+--------+--------------+
+| Worker_Id | first_name | last_name | salary | department   |
++-----------+------------+-----------+--------+--------------+
+|         1 | Vipul      | Jain      |  35000 | Bank manager |
+|         2 | Satish     | Kumar     |  30000 | Marketig     |
++-----------+------------+-----------+--------+--------------+
+2 rows in set (0.00 sec)
+
+...........................................................................................................
+...........................................................................................................
+Question-16.Write an SQL Query to print details of Worker 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
